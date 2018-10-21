@@ -3,13 +3,14 @@
 
 ### STS ###
 .apt_generated
-.classpath
+###.classpath
 .factorypath
 .project
 .settings
 .springBeans
 .sts4-cache
 target
+.gitignore
 
 ### IntelliJ IDEA ###
 .idea
