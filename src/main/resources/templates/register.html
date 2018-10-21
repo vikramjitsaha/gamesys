@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>User Registration</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" type="text/css"
+	href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+<link rel="stylesheet" th:href="@{/css/main.css}"
+	href="../../css/main.css" />
+
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">User Registration</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li ><a th:href="@{/}">Home</a></li>
+					<li th:if="${currentRole} == 'ROLE_ADMIN'" class="active"><a th:href="@{/register}">Register</a></li>	
+					<li ><a th:href="@{/userlist}">User List</a></li>	
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<center>
+	<div class="container">
+
+		<div class="starter-template">
+			<h1>Enter Registration Details</h1>	
+			<hr/>
+			<br/>
+
+			<form th:action="@{/addUser}" th:object="${userForm}" method="POST">
+				<table style="">
+					<tbody>
+						<tr>
+							<td style="width:20%">
+								<label>*&nbsp;User Name</label>
+							</td>
+							<td style="width:80%">
+								<input type="text" id="userName" th:field="*{userName}" title="User name should be alphanumeric without space" /> 
+							</td>
+						</tr>
+						<tr>
+							<td style="width:20%">
+								<label>*&nbsp;Password</label>
+							</td>
+							<td style="width:80%">
+								 <input type="password" id="password" th:field="*{password}" title="Password should be at least 4 character, at least one upper case, at least one number" />
+							</td>
+						</tr>
+						<tr>
+							<td style="width:20%">
+								<label>*&nbsp;Date Of Birth</label>
+							</td>
+							<td style="width:80%">
+								 <input type="text" id="dob" th:field="*{dob}" title="Date of birth should be in yyyy-mm-dd format" />
+							</td>
+						</tr>
+						<tr>
+							<td style="width:20%">
+								<label>*&nbsp;SSN</label>
+							</td>
+							<td style="width:80%">
+								 <input type="text" id="ssn" th:field="*{ssn}" title="SSN should be in AAA-GG-SSSS format"/>
+							</td>
+						</tr>
+					</tbody>					
+				</table>
+				
+				<br/>
+				<input type="submit" value="Create" />
+			</form>
+			<br />
+
+			<hr/>
+			
+
+		</div>
+	</div>
+	<!-- /.container -->
+	</center>
+	
+			<div th:if="${errorMessage}" th:utext="${errorMessage}" style="color: red; font-style: italic;" />
+			<div th:if="${successMessage}" th:utext="${successMessage}" style="color: green; font-style: italic;"/>
+
+	<script type="text/javascript"
+		src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>
