@@ -7,7 +7,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>user-registration</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>user-registration</name>
 	<description>Demo project for user registration </description>
